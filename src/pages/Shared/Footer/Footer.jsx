@@ -3,6 +3,8 @@ import SectionContainer from "../SectionContainer/SectionContainer";
 import Logo from "../Logo/Logo";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-900 w-full">
       <SectionContainer>
@@ -78,7 +80,7 @@ const Footer = () => {
           <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
             <div className="flex justify-center items-center">
               <p className="text-sm text-gray-400">
-                © 2022 Preline. All rights reserved.
+                © {year} Bistro Boss Restaurant. All rights reserved.
               </p>
             </div>
 
