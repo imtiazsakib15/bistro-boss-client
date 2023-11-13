@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 
 const OrderOnline = () => {
   return (
-    <>
+    <div className="pt-10">
       <SectionContainer>
         <SectionTitle
           subtitle={"From 11:00am to 10:00pm"}
@@ -45,49 +45,39 @@ const OrderOnline = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="relative">
+              <div>
                 <img className="w-full" src={slide1} alt="" />
-                <span className="text-2xl text-white absolute bottom-4">
-                  Salad
-                </span>
+                <h3 className="text-2xl font-cinzel text-white -mt-12">Salad</h3>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative">
+              <div>
                 <img className="w-full" src={slide2} alt="" />
-                <span className="text-2xl text-white absolute bottom-4">
-                  Pizza
-                </span>
+                <h3 className="text-2xl font-cinzel text-white -mt-12">Pizza</h3>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative">
+              <div>
                 <img className="w-full" src={slide3} alt="" />
-                <span className="text-2xl text-white absolute bottom-4">
-                  Soup
-                </span>
+                <h3 className="text-2xl font-cinzel text-white -mt-12">Soup</h3>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative">
+              <div>
                 <img className="w-full" src={slide4} alt="" />
-                <span className="text-2xl text-white absolute bottom-4">
-                  Dessert
-                </span>
+                <h3 className="text-2xl font-cinzel text-white -mt-12">Dessert</h3>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative">
+              <div>
                 <img className="w-full" src={slide5} alt="" />
-                <span className="text-2xl text-white absolute bottom-4">
-                  Salad
-                </span>
+                <span className="text-2xl font-cinzel text-white -mt-12">Salad</span>
               </div>
             </SwiperSlide>
           </Swiper>
         </div>
       </SectionContainer>
-    </>
+    </div>
   );
 };
 
