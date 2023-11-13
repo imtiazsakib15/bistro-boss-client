@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SectionContainer from "../SectionContainer/SectionContainer";
 import Logo from "../Logo/Logo";
 
 const Footer = () => {
@@ -7,8 +6,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 w-full">
-      <SectionContainer>
-        <div className="w-full text-center">
+      <div className="max-w-[90rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
+        <div className="w-full text-center lg:text-left">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <div className="col-span-full lg:col-span-1">
               <Logo />
@@ -163,7 +162,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </SectionContainer>
+      </div>
     </footer>
   );
 };
