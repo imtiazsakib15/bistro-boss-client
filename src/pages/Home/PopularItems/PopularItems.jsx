@@ -29,8 +29,10 @@ const PopularItems = () => {
             No Item Found
           </div>
         )}
-        <div className="text-center pt-12">
-        <button className="uppercase sm:text-xl font-medium border-b-2 border-black px-5 py-2 rounded-md bg-slate-100 hover:bg-slate-400">View full menu</button>
+        <div className="text-center pt-8 sm:pt-12">
+          <button className="uppercase sm:text-lg font-medium border-b-2 border-black px-5 py-2 rounded-md bg-slate-100 hover:bg-slate-400">
+            View full menu
+          </button>
         </div>
       </SectionContainer>
     </div>

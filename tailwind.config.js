@@ -10,6 +10,9 @@ export default {
       fontFamily: {
         cinzel: "Cinzel",
       },
+      backgroundImage: {
+        'featured': "url('/src/assets/home/featured.jpg')",
+      }
     },
   },
   plugins: [require("preline/plugin")],
