@@ -8,7 +8,7 @@ const FeaturedItem = () => {
 
   return (
     <div className="bg-featured bg-fixed bg-no-repeat bg-cover mt-5 sm:mt-10 lg:mt-14">
-      <div className="bg-black w-full h-full opacity-80 py-20 text-white">
+      <div className="bg-black w-full h-full bg-opacity-80 py-20 text-white">
         <SectionContainer>
           <SectionTitle subtitle={"Check it out"} title={"Featured item"} />
           <div className="pt-12 flex flex-col md:flex-row items-center gap-10">

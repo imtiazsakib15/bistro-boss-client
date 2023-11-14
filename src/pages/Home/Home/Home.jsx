@@ -1,3 +1,4 @@
+import About from "../About/About";
 import FeaturedItem from "../FeaturedItem/FeaturedItem";
 import OrderOnline from "../OrderOnline/OrderOnline";
 import PopularItems from "../PopularItems/PopularItems";
@@ -9,6 +10,7 @@ const Home = () => {
     <>
       <Slider />
       <OrderOnline />
+      <About />
       <PopularItems />
       <FeaturedItem />
       <Testimonials />

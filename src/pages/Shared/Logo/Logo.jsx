@@ -7,7 +7,7 @@ const Logo = () => {
       to="/"
       aria-label="Bistro Boss Restaurant"
     >
-      <span className="text-lg font-extrabold">Bistro Boss</span>
+      <span className="text-lg font-extrabold font-cinzel">Bistro Boss</span>
       <span className="text-base font-semibold -mt-2">Restaurant</span>
     </Link>
   );

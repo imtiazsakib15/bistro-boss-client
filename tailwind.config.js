@@ -11,8 +11,9 @@ export default {
         cinzel: "Cinzel",
       },
       backgroundImage: {
-        'featured': "url('/src/assets/home/featured.jpg')",
-      }
+        featured: "url('/src/assets/home/featured.jpg')",
+        about: "url('/src/assets/home/chef-service.jpg')",
+      },
     },
   },
   plugins: [require("preline/plugin")],
