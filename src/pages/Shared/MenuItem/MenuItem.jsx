@@ -9,9 +9,7 @@ const MenuItem = ({ item }) => {
         alt=""
       />
       <div>
-        <h3 className="sm:text-xl font-cinzel pb-1 sm:pb-2">
-          {name}-----------
-        </h3>
+        <h3 className="sm:text-xl font-cinzel pb-1 sm:pb-2">{name}---------</h3>
         <p className="text-sm sm:text-base">{recipe}</p>
       </div>
       <div>

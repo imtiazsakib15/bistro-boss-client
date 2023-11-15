@@ -76,14 +76,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
+          <div className="mt-8 sm:mt-12 grid gap-y-2">
             <div className="flex justify-center items-center">
               <p className="text-sm text-gray-400">
                 © {year} Bistro Boss Restaurant. All rights reserved.
               </p>
             </div>
 
-            <div>
+            <div className="text-center">
               <Link
                 className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"
                 to="/"

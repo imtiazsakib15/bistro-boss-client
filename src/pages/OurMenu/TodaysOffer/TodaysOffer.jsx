@@ -15,7 +15,7 @@ const TodaysOffer = () => {
   }, []);
 
   return (
-    <div className="py-10 md:py-14">
+    <div className="py-8 md:py-10">
       <SectionContainer>
         <SectionTitle subtitle={"Don't miss"} title={"Today's offer"} />
         {popularItems?.length > 0 ? (
@@ -30,7 +30,7 @@ const TodaysOffer = () => {
           </div>
         )}
         <div className="text-center pt-8 sm:pt-12">
-          <button className="uppercase sm:text-lg font-medium border-b-2 border-black px-5 py-2 rounded-md bg-slate-100 hover:bg-slate-400">
+          <button className="uppercase sm:text-lg font-medium border-b-2 border-black px-5 py-2 rounded-md hover:bg-slate-400">
             Order your favourite food
           </button>
         </div>
