@@ -5,7 +5,7 @@ const About = () => {
     <>
       <SectionContainer>
         <div className="bg-about bg-fixed bg-no-repeat bg-center bg-cover px-4 py-12 sm:px-20 sm:py-24 mb-12 sm:mb-16 md:mb-20 sm:mt-4">
-          <div className="bg-white text-center p-4 sm:px-10 sm:py-14 md:px-20 md:py-20">
+          <div className="bg-white text-center px-4 py-6 sm:px-10 sm:py-14 md:px-20 md:py-20">
             <h3 className="uppercase text-2xl sm:text-4xl font-cinzel">
               Bistro boss
             </h3>
