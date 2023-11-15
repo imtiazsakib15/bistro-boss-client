@@ -68,9 +68,9 @@ const NavBar = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "text-yellow-400" : "")}
-              to="/our-shop"
+              to="/order"
             >
-              Our Shop
+              Order
             </NavLink>
 
             <NavLink
