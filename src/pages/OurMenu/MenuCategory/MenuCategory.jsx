@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MenuItems from "../../Shared/MenuItems/MenuItems";
 import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
 import MenuCover from "../MenuCover/MenuCover";
@@ -11,9 +12,12 @@ const MenuCategory = ({ items, img, title, subtitle }) => {
         <MenuItems items={items} />
       </SectionContainer>
       <div className="text-center pt-8 sm:pt-12">
-        <button className="uppercase sm:text-lg font-medium border-b-2 border-black px-5 py-2 rounded-md hover:bg-slate-400">
+        <Link
+          to={`/order/${title}`}
+          className="uppercase sm:text-lg font-medium border-b-2 border-black px-5 py-2 rounded-md hover:bg-slate-400"
+        >
           Order your favourite food
-        </button>
+        </Link>
       </div>
     </div>
   );

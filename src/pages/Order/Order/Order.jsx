@@ -5,12 +5,16 @@ import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
 import useMenu from "../../../hooks/useMenu";
 import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
-import MenuCard from "../../Shared/MenuCard/MenuCard";
 import MenuCards from "../../Shared/MenuCards/MenuCards";
+import { Link, useParams } from "react-router-dom";
 
 const OurShop = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const { category } = useParams();
+  const menus = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const initialTabIndex = menus.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialTabIndex);
   const { menu } = useMenu();
+
   const saladItems = menu.filter((item) => item.category === "salad");
   const pizzaItems = menu.filter((item) => item.category === "pizza");
   const soupItems = menu.filter((item) => item.category === "soup");
@@ -26,16 +30,26 @@ const OurShop = () => {
       />
       <SectionContainer>
         <Tabs
-          className="py-20"
+          className="text-center py-14 sm:py-20"
           defaultIndex={tabIndex}
           onSelect={(index) => setTabIndex(index)}
         >
           <TabList>
-            <Tab>Salad</Tab>
-            <Tab>Pizza</Tab>
-            <Tab>Soup</Tab>
-            <Tab>Desert</Tab>
-            <Tab>Drinks</Tab>
+            <Tab>
+              <Link to={"/order/salad"}>Salad</Link>
+            </Tab>
+            <Tab>
+              <Link to={"/order/pizza"}>Pizza</Link>
+            </Tab>
+            <Tab>
+              <Link to={"/order/soup"}>Soup</Link>
+            </Tab>
+            <Tab>
+              <Link to={"/order/desert"}>Desert</Link>
+            </Tab>
+            <Tab>
+              <Link to={"/order/drinks"}>Drinks</Link>
+            </Tab>
           </TabList>
 
           <TabPanel>

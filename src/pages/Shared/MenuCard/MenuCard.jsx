@@ -1,8 +1,11 @@
 const MenuCard = ({ item }) => {
   return (
     <div className="bg-slate-100">
-      <div>
-        <img src={item?.image} alt="" />
+      <div className="relative">
+        <img className="w-full" src={item?.image} alt="" />
+        <p className="absolute right-4 top-4 bg-black text-white px-3 py-2">
+          ${item?.price}
+        </p>
       </div>
       <div className="p-8 flex flex-col justify-between">
         <h3 className="text-center text-2xl font-semibold">{item?.name}</h3>
