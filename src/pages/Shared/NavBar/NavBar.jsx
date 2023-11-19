@@ -1,7 +1,17 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import useAuth from "../../../hooks/useAuth";
 
 const NavBar = () => {
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .then((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-slate-700 border-b border-gray-200 text-sm dark:bg-gray-800 dark:border-gray-700 fixed opacity-90">
       <nav
@@ -13,7 +23,7 @@ const NavBar = () => {
           <div className="sm:hidden">
             <button
               type="button"
-              className="hs-collapse-toggle w-9 h-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              className="hs-collapse-toggle w-9 h-9 flex justify-center items-center text-sm font-semibold rounded-lg border bg-white border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               data-hs-collapse="#navbar-collapse-with-animation"
               aria-controls="navbar-collapse-with-animation"
               aria-label="Toggle navigation"
@@ -73,12 +83,23 @@ const NavBar = () => {
               Order
             </NavLink>
 
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-yellow-400" : "")}
-              to="/login"
-            >
-              Log in
-            </NavLink>
+            {user?.email ? (
+              <button
+                onClick={handleLogOut}
+                className="bg-gray-50 text-black px-3 py-2"
+              >
+                Log Out
+              </button>
+            ) : (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400" : ""
+                }
+                to="/login"
+              >
+                Log in
+              </NavLink>
+            )}
           </div>
         </div>
       </nav>
