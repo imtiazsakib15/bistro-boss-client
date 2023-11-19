@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -10,6 +10,9 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname;
 
   useEffect(() => {
     loadCaptchaEnginge(6, "black", "white");
@@ -23,9 +26,8 @@ const Login = () => {
 
     const user_captcha_input = form.user_captcha_input.value;
     if (validateCaptcha(user_captcha_input)) {
-      signIn(email, password).then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+      signIn(email, password).then(() => {
+        navigate(from ? from : "/");
       });
     }
   };
