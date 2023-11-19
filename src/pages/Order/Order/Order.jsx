@@ -7,6 +7,7 @@ import useMenu from "../../../hooks/useMenu";
 import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
 import MenuCards from "../../Shared/MenuCards/MenuCards";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const OurShop = () => {
   const { category } = useParams();
@@ -23,6 +24,9 @@ const OurShop = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Order Menu | Bistro Boss</title>
+      </Helmet>
       <PageCover
         img={shopBg}
         title={"Our shop"}
