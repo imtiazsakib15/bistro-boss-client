@@ -1,23 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { MdErrorOutline } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
-    const {createUser} = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createUser(data?.email, data?.password)
-    .then(userCredential => {
-        const user = userCredential.user;
-        console.log(user);
-    })
+    createUser(data?.email, data?.password).then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      updateUserProfile(data?.name, data?.photoURL)
+        .then(() => {
+          console.log(user);
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
 
   return (
@@ -97,9 +105,33 @@ const SignUp = () => {
                       />
                       <p>
                         {errors.name && (
-                          <span className="text-red-600 text-sm flex items-center gap-1">
+                          <span className="text-red-600 text-xs flex items-center gap-0.5">
                             <MdErrorOutline />
                             {errors.name?.message}
+                          </span>
+                        )}
+                      </p>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="photoURL"
+                        className="block text-sm mb-2 dark:text-white"
+                      >
+                        Photo URL*
+                      </label>
+                      <input
+                        type="text"
+                        id="photoURL"
+                        {...register("photoURL", {
+                          required: "Photo URL is required.",
+                        })}
+                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600 border"
+                      />
+                      <p>
+                        {errors.photoURL && (
+                          <span className="text-red-600 text-xs flex items-center gap-0.5">
+                            <MdErrorOutline />
+                            {errors.photoURL?.message}
                           </span>
                         )}
                       </p>
@@ -116,7 +148,7 @@ const SignUp = () => {
                         type="email"
                         id="email"
                         {...register("email", {
-                          required: "Email is required",
+                          required: "Email is required.",
                           pattern: {
                             value:
                               /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -127,7 +159,7 @@ const SignUp = () => {
                       />
                       <p>
                         {errors.email && (
-                          <span className="text-red-600 text-sm flex items-center gap-1">
+                          <span className="text-red-600 text-xs flex items-center gap-0.5">
                             <MdErrorOutline />
                             {errors.email?.message}
                           </span>
@@ -168,7 +200,7 @@ const SignUp = () => {
                       />
                       <p>
                         {errors.password && (
-                          <span className="text-red-600 text-sm flex items-center gap-1">
+                          <span className="text-red-600 text-xs flex items-center gap-0.5">
                             <MdErrorOutline />
                             {errors.password?.message}
                           </span>

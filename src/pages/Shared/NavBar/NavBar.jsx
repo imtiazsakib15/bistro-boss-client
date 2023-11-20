@@ -56,11 +56,10 @@ const NavBar = () => {
           id="navbar-collapse-with-animation"
           className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
         >
-          <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7 text-white font-medium">
+          <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-6 sm:mt-0 sm:ps-7 pb-5 text-center text-white font-medium">
             <NavLink
               className={({ isActive }) => (isActive ? "text-yellow-400" : "")}
               to="/"
-              aria-current="page"
             >
               Home
             </NavLink>
@@ -99,6 +98,16 @@ const NavBar = () => {
               >
                 Log in
               </NavLink>
+            )}
+
+            {user?.photoURL && (
+              <div className="mx-auto sm:mx-0">
+                <img
+                  className="w-9 h-9 border-2 border-yellow-600 rounded-full"
+                  src={user?.photoURL}
+                  alt="User"
+                />
+              </div>
             )}
           </div>
         </div>

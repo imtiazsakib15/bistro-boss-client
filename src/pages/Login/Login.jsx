@@ -27,7 +27,7 @@ const Login = () => {
     const user_captcha_input = form.user_captcha_input.value;
     if (validateCaptcha(user_captcha_input)) {
       signIn(email, password).then(() => {
-        navigate(from ? from : "/");
+        navigate(from ? from : "/", { replace: true });
       });
     }
   };
