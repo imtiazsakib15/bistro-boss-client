@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
+import { FaCartShopping } from "react-icons/fa6";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
+  const { cart } = useCart();
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -56,7 +60,7 @@ const NavBar = () => {
           id="navbar-collapse-with-animation"
           className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
         >
-          <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-6 sm:mt-0 sm:ps-7 pb-5 text-center text-white font-medium">
+          <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-6 sm:mt-0 sm:ps-7 pb-5 sm:pb-0 text-center text-white font-medium">
             <NavLink
               className={({ isActive }) => (isActive ? "text-yellow-400" : "")}
               to="/"
@@ -83,12 +87,20 @@ const NavBar = () => {
             </NavLink>
 
             {user?.email ? (
-              <button
-                onClick={handleLogOut}
-                className="bg-gray-50 text-black px-3 py-2"
-              >
-                Log Out
-              </button>
+              <>
+                <div className="text-xl mx-auto sm:mx-0 relative">
+                  <FaCartShopping />
+                  <span className="absolute text-xs -right-2 -top-2 bg-yellow-700 rounded-full w-4 h-4">
+                    {cart?.length}
+                  </span>
+                </div>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-gray-50 text-black px-3 py-2"
+                >
+                  Log Out
+                </button>
+              </>
             ) : (
               <NavLink
                 className={({ isActive }) =>

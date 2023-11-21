@@ -1,4 +1,34 @@
+
+import useAuth from "../../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useCart from "../../../hooks/useCart";
+
 const MenuCard = ({ item }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const axiosSecure = useAxiosSecure();
+  const { cartRefetch } = useCart();
+
+  const handleAddToCart = () => {
+    const email = user?.email;
+    if (!email) return navigate("/login", { state: { from: location } });
+    const cart = { email, menuId: item._id };
+
+    axiosSecure.post("/carts", cart).then((res) => {
+      if (res.data?.insertedId) {
+        Swal.fire({
+          title: "Good job!",
+          text: `${item.name} added to cart successfully!`,
+          icon: "success",
+        });
+        cartRefetch();
+      }
+    });
+  };
+
   return (
     <div className="bg-slate-100">
       <div className="relative">
@@ -11,8 +41,11 @@ const MenuCard = ({ item }) => {
         <h3 className="text-center text-2xl font-semibold">{item?.name}</h3>
         <p className="text-gray-600 pt-2">{item?.recipe}</p>
         <div className="text-center pt-5">
-          <button className="uppercase sm:text-lg font-medium border-b-2 border-yellow-700 px-5 py-2 rounded-md text-yellow-700 hover:bg-black">
-            View full menu
+          <button
+            onClick={handleAddToCart}
+            className="uppercase sm:text-lg font-medium border-b-2 border-yellow-700 px-5 py-2 rounded-md text-yellow-700 hover:bg-black"
+          >
+            Add to cart
           </button>
         </div>
       </div>
