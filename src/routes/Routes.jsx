@@ -6,6 +6,10 @@ import Order from "../pages/Order/Order/Order";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import Cart from "../pages/Cart/Cart";
+import Dashboard from "../layout/Dashboard";
+import UserHome from "../pages/UserHome/UserHome";
+import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +38,24 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "user-home",
+        element: <UserHome />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
+      },
+    ],
   },
 ]);
 

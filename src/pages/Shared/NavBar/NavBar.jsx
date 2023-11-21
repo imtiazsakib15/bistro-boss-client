@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
@@ -88,12 +88,15 @@ const NavBar = () => {
 
             {user?.email ? (
               <>
-                <div className="text-xl mx-auto sm:mx-0 relative">
+                <Link
+                  to={"/dashboard/cart"}
+                  className="text-xl mx-auto sm:mx-0 relative"
+                >
                   <FaCartShopping />
                   <span className="absolute text-xs -right-2 -top-2 bg-yellow-700 rounded-full w-4 h-4">
                     {cart?.length}
                   </span>
-                </div>
+                </Link>
                 <button
                   onClick={handleLogOut}
                   className="bg-gray-50 text-black px-3 py-2"
