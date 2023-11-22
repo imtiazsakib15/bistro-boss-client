@@ -1,10 +1,27 @@
 import { FaTrash } from "react-icons/fa6";
 import useCart from "../../hooks/useCart";
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const Cart = () => {
-  const { cart } = useCart();
+  const { cart, cartRefetch } = useCart();
+  const axiosSecure = useAxiosSecure();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+  const handleDelete = (id) => {
+    axiosSecure.delete(`/carts/${id}`).then((res) => {
+      console.log(res.data);
+      if (res.data?.deletedCount > 0) {
+        cartRefetch();
+        Swal.fire({
+          title: "Good job!",
+          text: `Deleted successfully!`,
+          icon: "success",
+        });
+      }
+    });
+  };
 
   return (
     <div className="pt-4">
@@ -42,7 +59,9 @@ const Cart = () => {
                   <td>{item.name}</td>
                   <td>${item.price}</td>
                   <td className="text-red-600">
-                    <FaTrash />
+                    <button onClick={() => handleDelete(item._id)}>
+                      <FaTrash />
+                    </button>
                   </td>
                 </tr>
               ))}
