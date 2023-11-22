@@ -1,4 +1,3 @@
-
 import useAuth from "../../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -15,7 +14,13 @@ const MenuCard = ({ item }) => {
   const handleAddToCart = () => {
     const email = user?.email;
     if (!email) return navigate("/login", { state: { from: location } });
-    const cart = { email, menuId: item._id };
+    const cart = {
+      email,
+      menuId: item._id,
+      name: item.name,
+      image: item.image,
+      price: item.price,
+    };
 
     axiosSecure.post("/carts", cart).then((res) => {
       if (res.data?.insertedId) {

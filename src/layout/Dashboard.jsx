@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <>
       <SectionContainer>
-        <div className="p-6 grid grid-cols-5 gap-6 min-h-screen">
+        <div className="p-6 grid grid-cols-4 gap-6 min-h-screen">
           <div className="col-span-1 bg-yellow-600 rounded-md font-bold px-8 py-12 space-y-5">
             <div>
               <NavLink
@@ -60,7 +60,7 @@ const Dashboard = () => {
               </Link>
             </div>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-3">
             <Outlet />
           </div>
         </div>
