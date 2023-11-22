@@ -51,7 +51,7 @@ const Cart = () => {
                   <td className="pr-5 text-lg font-bold">{index + 1}</td>
                   <td>
                     <div className="flex items-center gap-3">
-                      <div className="mask mask-squircle w-12 h-12">
+                      <div className="w-12 h-12">
                         <img src={item.image} alt="" />
                       </div>
                     </div>
