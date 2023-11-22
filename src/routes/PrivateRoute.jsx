@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
     return (
       <div className="h-screen grid place-items-center">
         <RotatingLines
-          strokeColor="blue"
+          strokeColor="yellow"
           strokeWidth="5"
           animationDuration="0.75"
           width="96"
