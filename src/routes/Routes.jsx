@@ -11,6 +11,9 @@ import Dashboard from "../layout/Dashboard";
 import UserHome from "../pages/UserHome/UserHome";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 import PrivateRoute from "../routes/PrivateRoute";
+import AdminHome from "../providers/AdminHome/AdminHome";
+import AddItems from "../pages/AddItems/AddItems";
+import AllUsers from "../pages/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +62,18 @@ const router = createBrowserRouter([
       {
         path: "payment-history",
         element: <PaymentHistory />,
+      },
+      {
+        path: "admin-home",
+        element: <AdminHome />,
+      },
+      {
+        path: "add-items",
+        element: <AddItems />,
+      },
+      {
+        path: "all-users",
+        element: <AllUsers />,
       },
     ],
   },
