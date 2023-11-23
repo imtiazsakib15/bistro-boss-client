@@ -13,6 +13,7 @@ const AllUsers = () => {
       return res.data;
     },
   });
+
   const handleMakeAdmin = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -43,7 +44,7 @@ const AllUsers = () => {
       <SectionTitle title={"Manage all users"} subtitle={"How Many??"} />
       <div className="px-8 py-10 bg-slate-50 mt-10">
         <div className="text-xl font-bold">
-          <p>Total Order: {users?.length}</p>
+          <p>Total User: {users?.length}</p>
         </div>
         <div className="overflow-x-auto pt-8">
           <table className="table-auto w-full">
